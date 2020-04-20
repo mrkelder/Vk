@@ -1,0 +1,44 @@
+.audioPlayer {
+    border: 1px solid black;
+    width: 250px;
+    // height: 80px;
+    display: flex;
+    .audioSection1 {
+        button {
+            margin: 5px;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: $mc;
+            border: none;
+            cursor: pointer;
+            background-image: url("/img/play.svg");
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 43%;
+            outline: none;
+            border-radius: 7px;
+        }
+    }
+    .audioSection2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        p {
+            margin: 0;
+            @include font();
+        }
+        .range {
+            width: 171px;
+            height: 3px;
+            background-color: black;
+            position: relative;
+            .range2{
+                position: absolute;
+                background-color: $mc;
+                width: 57px;
+                height: 3px;
+            }
+        }
+    }
+}

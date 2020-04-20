@@ -1,0 +1,196 @@
+header {
+  background-color: $mc;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 250px;
+  box-sizing: border-box;
+  * {
+    height: 28px;
+    margin: 0;
+    padding: 0;
+  }
+  #notificationBlock {
+    position: absolute;
+    width: 330px;
+    height: 80vh;
+    right: 10px;
+    bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-end;
+    .notification {
+      margin: 6px 0;
+      width: 330px;
+      height: 70px;
+      background-color: rgba(0, 0, 0, 0.795);
+      border-radius: 7px;
+      display: flex;
+      .notLogo {
+        width: 82px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-color: white;
+        }
+      }
+      .notData {
+        display: flex;
+        flex-direction: column;
+        width: 196px;
+        .notInfo {
+          b {
+            color: $white;
+            font-size: 13px;
+            @include font();
+          }
+          span {
+            margin-left: 5px;
+            color: $white;
+            font-size: 13px;
+            @include font();
+          }
+        }
+        .notText {
+          display: flex;
+          align-items: center;
+          p {
+            color: $white;
+            font-size: 13px;
+            @include font();
+          }
+        }
+      }
+      .notClose {
+        display: flex;
+        justify-content: flex-end;
+        width: 52px;
+        height: 70px;
+        button {
+          cursor: pointer;
+          outline: none;
+          border: none;
+          width: 15px;
+          height: 15px;
+          background-image: url("/img/whiteCross.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  #logo {
+    width: 34px;
+  }
+  #searchBlock {
+    width: 230px;
+    position: relative;
+    #search {
+      @include font();
+      background-color: #224b7a;
+      color: #d7e0eb;
+      border: none;
+      outline: none;
+      width: 100%;
+      border-radius: 50px;
+      text-indent: 15px;
+      &:focus {
+        background-color: $white;
+        color: black;
+        &::placeholder {
+          color: $grey;
+        }
+      }
+      &::placeholder {
+        color: $mc;
+        text-indent: 15px;
+      }
+    }
+    #searchResults {
+      // display: flex;
+      display: none;
+      z-index: 999;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 330px;
+      background-color: white;
+      border: 1px solid $grey;
+      box-sizing: border-box;
+      border-radius: 3px;
+      flex-direction: column;
+      > {
+        h5 {
+          color: $grey;
+          @include font();
+          margin: 5px 0 0 15px;
+        }
+      }
+      #seeMoreResults {
+        display: flex;
+        font-size: 13px;
+        text-indent: 15px;
+        align-items: center;
+        color: $mc;
+        background-color: $bgc;
+        height: 38px;
+        font-weight: bolder;
+        @include font();
+        text-decoration: none;
+      }
+      .foundUser {
+        display: flex;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 0px 3px;
+        margin: 5px 15px;
+        text-decoration: none;
+        align-items: center;
+        &:hover {
+          background-color: $mc;
+        }
+        &:hover > .info > h5 {
+          color: $white;
+        }
+        img {
+          background-color: white;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          margin-right: 15px;
+        }
+        .info {
+          display: flex;
+          h5 {
+            color: $mc;
+            @include font();
+          }
+        }
+      }
+    }
+  }
+  #gear {
+    cursor: pointer;
+    background-image: url("/img/gear.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-color: transparent;
+    border: none;
+    width: 28px;
+    outline: none;
+    transition: 0.5s;
+    &:hover {
+      transform: rotate(180deg);
+      transition: 0.8s;
+    }
+  }
+}

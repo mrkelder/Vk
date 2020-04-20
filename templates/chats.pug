@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="/css/chats.css")
+        title #{name}
+    body
+        include includes/header.pug
+        main
+            include includes/chat.pug
+            each i in chats
+                if i.lastMessage != undeifned
+                    +chat(i.toUser , i.lastMessage ,i.id , i.logo , i.online , i.toUserId)
+        include includes/scripts.pug
+        script(src="/js/chat.js")

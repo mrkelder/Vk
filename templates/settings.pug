@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/settings.css")
+        title Настройки
+    body
+        include includes/header.pug
+        main
+            #set_header
+                h1 Настройки пользователя
+            form#set_body
+                #name_field
+                    span Имя:
+                    input(type="text" name="name" value=`${name}`)#changeName
+                #file_field
+                    input(type="file" name="logo_photo")#file
+                    span Выбрать фото:
+                    label(for="file") Фото
+                #save_block
+                    hr
+                    input(type="submit" value="Сохранить")#save 
+                a#logOut Выйти из аккаунта
+        include includes/scripts.pug
+        script(src="/js/settings.js")

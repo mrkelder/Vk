@@ -1,0 +1,424 @@
+body {
+  background-color: #edeef0;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: #4a76a8;
+  height: 42px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 7px 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header * {
+  height: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+header #notificationBlock {
+  position: absolute;
+  width: 330px;
+  height: 80vh;
+  right: 10px;
+  bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header #notificationBlock .notification {
+  margin: 6px 0;
+  width: 330px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.795);
+  border-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header #notificationBlock .notification .notLogo {
+  width: 82px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header #notificationBlock .notification .notLogo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+header #notificationBlock .notification .notData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 196px;
+}
+
+header #notificationBlock .notification .notData .notInfo b {
+  color: #f0f0f0;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header #notificationBlock .notification .notData .notInfo span {
+  margin-left: 5px;
+  color: #f0f0f0;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header #notificationBlock .notification .notData .notText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header #notificationBlock .notification .notData .notText p {
+  color: #f0f0f0;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header #notificationBlock .notification .notClose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 52px;
+  height: 70px;
+}
+
+header #notificationBlock .notification .notClose button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 15px;
+  height: 15px;
+  background-image: url("/img/whiteCross.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+header #logo {
+  width: 34px;
+}
+
+header #searchBlock {
+  width: 230px;
+  position: relative;
+}
+
+header #searchBlock #search {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #224b7a;
+  color: #d7e0eb;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 50px;
+  text-indent: 15px;
+}
+
+header #searchBlock #search:focus {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+header #searchBlock #search:focus::-webkit-input-placeholder {
+  color: #a8adb8;
+}
+
+header #searchBlock #search:focus:-ms-input-placeholder {
+  color: #a8adb8;
+}
+
+header #searchBlock #search:focus::-ms-input-placeholder {
+  color: #a8adb8;
+}
+
+header #searchBlock #search:focus::placeholder {
+  color: #a8adb8;
+}
+
+header #searchBlock #search::-webkit-input-placeholder {
+  color: #4a76a8;
+  text-indent: 15px;
+}
+
+header #searchBlock #search:-ms-input-placeholder {
+  color: #4a76a8;
+  text-indent: 15px;
+}
+
+header #searchBlock #search::-ms-input-placeholder {
+  color: #4a76a8;
+  text-indent: 15px;
+}
+
+header #searchBlock #search::placeholder {
+  color: #4a76a8;
+  text-indent: 15px;
+}
+
+header #searchBlock #searchResults {
+  display: none;
+  z-index: 999;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 330px;
+  background-color: white;
+  border: 1px solid #a8adb8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header #searchBlock #searchResults > h5 {
+  color: #a8adb8;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 0 0 15px;
+}
+
+header #searchBlock #searchResults #seeMoreResults {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 13px;
+  text-indent: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #4a76a8;
+  background-color: #edeef0;
+  height: 38px;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+header #searchBlock #searchResults .foundUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0px 3px;
+  margin: 5px 15px;
+  text-decoration: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header #searchBlock #searchResults .foundUser:hover {
+  background-color: #4a76a8;
+}
+
+header #searchBlock #searchResults .foundUser:hover > .info > h5 {
+  color: #f0f0f0;
+}
+
+header #searchBlock #searchResults .foundUser img {
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-right: 15px;
+}
+
+header #searchBlock #searchResults .foundUser .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header #searchBlock #searchResults .foundUser .info h5 {
+  color: #4a76a8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header #gear {
+  cursor: pointer;
+  background-image: url("/img/gear.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: transparent;
+  border: none;
+  width: 28px;
+  outline: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header #gear:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+main {
+  width: 580px;
+  margin: 15px auto;
+  background-color: white;
+  border: 1px solid #a8adb8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main .chat {
+  border-bottom: 0.5px solid #a8adb8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 72px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: white;
+}
+
+main .chat:visited {
+  color: black;
+}
+
+main .chat:hover {
+  background-color: #d3ddf1;
+}
+
+main .chat .chatLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90px;
+}
+
+main .chat .chatLogo .userPhoto {
+  width: 50px;
+  height: 50px;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 50%;
+}
+
+main .chat .chatMessage {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .chat .chatMessage .name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: black;
+}
+
+main .chat .chatMessage .lastChatText {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: .9rem;
+  color: black;
+}
+
+main .chat .chatTime {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 150px;
+  padding: 19px 0;
+}
+
+main .chat .chatTime * {
+  margin: 0;
+}
+
+main .chat .chatTime .lastChatTime {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .9rem;
+  color: #a8adb8;
+}
+
+main .chat .chatTime .isUserOnline {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=chats.css.map */

@@ -1,0 +1,47 @@
+$bgc: #edeef0;
+$mc: #4a76a8;
+$white: #f0f0f0;
+$grey: #a8adb8;
+$green: #23ffab;
+@mixin font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin buttonOne {
+  outline: none;
+  background-color: $mc;
+  border: none;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: $white;
+  cursor: pointer;
+  @include font();
+  &:hover {
+    background-color: #5085c2;
+  }
+  &:disabled{
+    color: rgb(63, 63, 63);
+    background-color: $grey;
+    cursor: default;
+  }
+}
+
+@mixin input {
+  border: 1px solid $grey;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 5px;
+  @include font();
+  outline: none;
+  color: black;
+  &::placeholder{
+    color: $grey;
+  }
+}
+
+body {
+  background-color: $bgc;
+  padding: 0;
+  margin: 0;
+}

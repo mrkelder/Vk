@@ -1,0 +1,21 @@
+mixin chat(name , lastMessage , chatId , logo , online , toUserId)
+    a(href=`/chat?c=${chatId}` id=`${toUserId}`).chat
+        .chatLogo
+            div(style=`background-image: url('/img/avatars/${logo}')`).userPhoto
+        .chatMessage
+            b.name #{name}
+            if lastMessage.file !== undefined
+                p.lastChatText Файл
+            else if lastMessage.sticker !== undefined
+                p.lastChatText Стикер
+            else
+                if [...lastMessage.text].length > 45
+                    p.lastChatText #{[...lastMessage.text].slice(0 ,45).join('')}...
+                else
+                    p.lastChatText #{lastMessage.text}
+        .chatTime 
+            p.lastChatTime #{lastMessage.time}
+            if online == true
+                div(style="background-color: #23ffab").isUserOnline
+            else
+                div(style="background-color: transparent").isUserOnline

@@ -1,0 +1,79 @@
+@import "init";
+@import "header";
+
+main {
+  width: 580px;
+  margin: 15px auto;
+  background-color: white;
+  border: 1px solid $grey;
+  box-sizing: border-box;
+  .chat {
+    border-bottom: .5px solid $grey;
+    box-sizing: border-box;
+    height: 72px;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: white;
+    &:visited{
+      color: black;
+    }
+    &:hover{
+      background-color: #d3ddf1;
+    }
+    .chatLogo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90px;
+      .userPhoto {
+        width: 50px;
+        height: 50px;
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: white;
+        border-radius: 50%;
+      }
+    }
+    .chatMessage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .name {
+        @include font();
+        font-size: 1rem;
+        color: black;
+      }
+      .lastChatText {
+        @include font();
+        margin-top: 5px;
+        margin-bottom: 0;
+        font-size: .9rem;
+        color: black;
+      }
+    }
+    .chatTime {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 150px;
+      padding: 19px 0;
+      *{
+        margin: 0;
+      }
+      .lastChatTime{
+        @include font();
+        font-size: .9rem;
+        color: $grey;
+      }
+      .isUserOnline{
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

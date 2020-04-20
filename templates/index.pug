@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="http://localhost:8080/css/index.css")
+        title VK Chat
+    body
+        main
+            div#signIn
+                h1 Вход
+                form(action="/authorization" method="POST" id="authorizationForm")
+                    input(type="text" placeholder="Введите ваш логин" name="login")#textInput
+                    input(type="password" placeholder="Введите пароль" name="password")#password
+                    input(type="submit" value="Войти" disabled)#subBtn
+                a(href="/registration")#createAccount Создать аккаунт
+        include includes/scripts.pug
+        script(src="/js/authorization.js")

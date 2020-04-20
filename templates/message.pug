@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/message.css")
+        title Vk
+    body
+        include includes/header.pug
+        main
+            #profile
+                #back
+                    div
+                    a(href=`/account/${id}`) Назад
+                #profileInfo
+                    b#userName #{friendName}
+                #options
+                    img(src=`/img/avatars/${userLogo}`, alt="logo")#logoPhoto
+            #messages
+                if messages.length !== 0
+                    each i in messages
+                        +msg(i.name , i.text , i.time, i.id , i.logo , i.file , i.sticker)
+                #userTyping
+                    #loadingDots
+                        .dot
+                        .dot
+                        .dot
+                    p Пользователь #{friendName} печатает...
+            form#form
+                label(for="fileToChat" title="Отправить файл")#clip
+                    img(src="/img/clip.svg" alt="clip")
+                input(type="file" name="msg_file")#fileToChat
+                input(type="text" placeholder="Напишите сообщение" name="text")#inputChat
+                img(src="/img/smile.svg", alt="smile" title="Стикеры")#smile
+                #stickersAndEmoji
+                    #panel
+                        .stickerPack#emoji 😀
+                        each i in stickers
+                            div(style=`background-image: url('/img/stickers/${i.root}/logo.png')` id=`pnl_${i._id}`).stickerPack
+                    #stickerBlocks
+                        #slideStickerBlocks
+                            .stickerBlock#emojis
+                                each i in ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "🥰", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "🥱", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "🙁", "😖", "😞", "😟", "😤", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😱", "🥵", "🥶", "😳", "🤪", "😵", "🥴"]
+                                    span.emoji #{i}
+                            each i , e in stickers
+                                div(id=`st_${i._id}` style=`right: -${264 * (e + 1)}px` data-postition=`${264 * (e + 1)}`).stickerBlock
+                                    each sticker in i.stickers
+                                        img(src=`/img/stickers/${i.root}/${sticker}`).sticker
+                #fileStatus
+                    p#fileStatusName
+                    button(title="Отменить файл")#fileStatusButton
+        include includes/scripts.pug
+        script(src="/js/message.js")

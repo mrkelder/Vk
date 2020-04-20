@@ -1,0 +1,23 @@
+{
+  "name": "vk",
+  "version": "0.0.1",
+  "description": "my own social media",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Vlad Me",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^2.12.0",
+    "fastify-cookie": "^3.6.0",
+    "fastify-formbody": "^3.1.0",
+    "fastify-multer": "^1.5.2",
+    "fastify-static": "^2.6.0",
+    "jimp": "^0.9.5",
+    "mongodb": "^3.5.3",
+    "point-of-view": "^3.7.1",
+    "pug": "^2.0.4",
+    "socket.io": "^2.3.0"
+  }
+}

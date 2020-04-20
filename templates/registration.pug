@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/regis.css")
+        title Регистрация
+    body
+        main
+            div#signIn
+                h1 Вход
+                form(action="/registrateUser" method="POST" id="registration")
+                    input(type="text" placeholder="Логин" name="login")#login
+                    input(type="text" placeholder="Имя пользовалетя" name="name")#textInput
+                    input(type="password" placeholder="Пароль" name="password")#password
+                    input(type="submit" value="Создать" disabled)#subBtn
+        include includes/scripts.pug
+        script(src="/js/registation.js")

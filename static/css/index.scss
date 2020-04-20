@@ -1,0 +1,38 @@
+@import "init";
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  #signIn {
+    background-color: $white;
+    padding: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    box-shadow: inset 0px 0px 1px 1px $mc;
+    h1 {
+      @include font();
+      margin-top: 5px;
+      color: $mc;
+    }
+    form {
+      display: inline-flex;
+      flex-direction: column;
+      #textInput , #password {
+        @include input();
+        margin-bottom: 5px;
+      }
+      #subBtn {
+        @include buttonOne();
+      }
+    }
+    #createAccount{
+      @include font();
+      margin-top: 10px;
+      text-align: right;
+      text-decoration: none;
+    }
+  }
+}

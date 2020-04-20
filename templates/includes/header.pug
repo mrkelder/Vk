@@ -1,0 +1,37 @@
+mixin msg(name , text ,date , id , photo , file , sticker)
+    div(id=`${id}`).message
+        input(type="checkbox", name=`${id}` id=`checkbox_${id}`).mesCheckbox
+        label(for=`checkbox_${id}`).messageContainer
+            div(id=`checkMes_${id}`).checkMes
+            .messageBlock
+                img(src=`/img/avatars/${photo}`, alt="logo").msgLogo
+                .msgInfo
+                    .userInfo
+                        b #{name}
+                        span #{date}
+                    if text !== ''
+                        p #{text}
+                    if file !== undefined
+                        case file.match(/\.\w+$/)[0]
+                            when '.png'
+                                img(src=`/files/${file}` alt="png").msgImg
+                            when '.txt'
+                                a(href=`/files/${file}`).msgTxt #{file}
+                            when '.mp3'
+                                audio(src=`/files/${file}` controls).msgAudio
+                            when '.mp4'
+                                video(src=`/files/${file}` controls preload="metadata").msgVideo
+                    if sticker !== undefined
+                        img(src=`/img/stickers${sticker}`, alt="Стикер").msgSticker
+header
+    a(href=`/`)
+        img(src="/img/logo.svg", alt="logo")#logo
+    #searchBlock
+        input(type="text" placeholder="Найти друзей")#search
+        #searchResults
+            a(href="/search")#seeMoreResults Больше результатов
+            h5#foundResults Результаты поиска
+    a(href="/settings")
+        button#gear
+    #notificationBlock
+    audio(src="/audio/notification.mp3")#notificationSound

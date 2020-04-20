@@ -1,0 +1,346 @@
+@import "init";
+@import "header";
+
+@keyframes dots {
+  from {
+    background-color: $grey;
+  }
+  50% {
+    background-color: transparent;
+  }
+  to {
+    background-color: $grey;
+  }
+}
+
+main {
+  width: 580px;
+  margin: 15px auto;
+  #profile {
+    border: 1px solid $grey;
+    display: flex;
+    height: 48px;
+    box-sizing: border-box;
+    #back {
+      flex: 0.3;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+      box-sizing: border-box;
+      cursor: pointer;
+      &:hover {
+        background: linear-gradient(90deg, $white 50%, white);
+      }
+      div {
+        width: 10px;
+        height: 10px;
+        border: 2px solid transparnt;
+        border-left: 1.5px solid $grey;
+        border-top: 1.5px solid $grey;
+        box-sizing: border-box;
+        transform: rotate(-45deg);
+        margin-right: 5px;
+      }
+      a {
+        font-size: 14px;
+        @include font();
+        color: $grey;
+        text-decoration: none;
+      }
+    }
+    #profileInfo {
+      flex: 1;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      b {
+        @include font();
+        font-weight: 500;
+      }
+    }
+    #options {
+      position: relative;
+      background-color: white;
+      flex: 0.3;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      #logoPhoto {
+        height: 35px;
+        border-radius: 50%;
+        background-color: white;
+      }
+    }
+  }
+  #messages {
+    overflow-y: scroll;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $grey;
+    border-top: none;
+    background-color: white;
+    .message {
+      margin: 5px 0;
+      display: flex;
+      width: 100%;
+      padding-top: 7px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      &:hover > label .checkMes {
+        background-position: 0 -19px;
+      }
+      * {
+        cursor: pointer;
+      }
+      .mesCheckbox {
+        display: none;
+      }
+      .messageContainer {
+        width: 100%;
+        display: flex;
+        .checkMes {
+          background-image: url("/img/msg_check.png");
+          background-size: 100%;
+          background-position: 0 -34px; /*-19px*/
+          background-repeat: no-repeat;
+          width: 15px;
+          height: 15px;
+          margin: 0 5px;
+        }
+        .messageBlock {
+          flex: 1;
+          display: flex;
+          .msgLogo {
+            height: 35px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 5px;
+          }
+          .msgInfo {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            .userInfo {
+              display: flex;
+              b,
+              span {
+                font-size: 12.5px;
+                @include font();
+              }
+              b {
+                color: $mc;
+                font-weight: bold;
+                margin-right: 5px;
+              }
+              span {
+                color: $grey;
+              }
+            }
+            .msgSticker {
+              max-width: 122px;
+              max-height: 130px;
+              margin-top: 15px;
+            }
+            p {
+              @include font();
+              font-size: 13px;
+              margin-top: 5px;
+              margin-bottom: 0;
+            }
+            .msgAudio {
+              width: 430px;
+              outline: none;
+            }
+            .msgVideo {
+              width: 430px;
+              outline: none;
+            }
+            .msgImg {
+              max-width: 430px;
+              max-height: 230px;
+            }
+            .msgTxt,
+            .msgAudio,
+            .msgVideo,
+            .msgImg {
+              margin-top: 15px;
+            }
+          }
+        }
+      }
+    }
+    #userTyping {
+      display: flex;
+      width: 100%;
+      height: 30px;
+      padding: 5px 25px 10px;
+      box-sizing: border-box;
+      #loadingDots {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 23px;
+        .dot {
+          width: 4px;
+          height: 4px;
+          background-color: transparent;
+          transition: background-color 0.7s;
+          border-radius: 50%;
+        }
+      }
+      p {
+        margin: 0;
+        margin-left: 5px;
+        @include font();
+        color: transparent;
+        transition: 0.7s;
+        font-size: 12.5px;
+      }
+    }
+  }
+  #form {
+    display: flex;
+    border: 1px solid $grey;
+    border-top: none;
+    background-color: #fafbfc;
+    align-items: center;
+    padding: 12px 0;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    #clip {
+      flex: 1;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #fileToChat {
+      display: none;
+    }
+    input {
+      @include input();
+      border-radius: 5px;
+      width: 436px;
+      height: 36px;
+    }
+    #smile {
+      flex: 1;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    #stickersAndEmoji {
+      display: none;
+      position: absolute;
+      right: 17px;
+      bottom: 60px;
+      // right: 280px;
+      // bottom: 250px;
+      #panel {
+        position: absolute;
+        border: 1px solid $grey;
+        border-bottom: none;
+        width: 264px;
+        height: 30px;
+        top: -30px;
+        background-color: $white;
+        box-sizing: border-box;
+        display: flex;
+        .stickerPack {
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          border-right: 1px solid $grey;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-position: 50%;
+          background-repeat: no-repeat;
+          background-size: 80%;
+        }
+      }
+      #stickerBlocks {
+        // display: flex;
+        width: 264px;
+        height: 190px;
+        position: relative;
+        overflow: hidden;
+        #slideStickerBlocks {
+          transition: 0.3s;
+          right: 0;
+          position: relative;
+          .stickerBlock {
+            position: absolute;
+            width: 264px;
+            height: 190px;
+            background-color: $bgc;
+            border: 1px solid $grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            padding: 5px;
+            overflow-y: scroll;
+            .sticker {
+              cursor: pointer;
+              width: 60px;
+              height: 60px;
+              margin: 5px;
+            }
+          }
+        }
+      }
+      #emojis {
+        // width: 264px;
+        // height: 190px;
+        // background-color: $bgc;
+        // border: 1px solid $grey;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // flex-wrap: wrap;
+        // box-sizing: border-box;
+        // padding: 5px;
+        // overflow-y: scroll;
+        .emoji {
+          margin: 5px;
+          padding: 2px;
+          cursor: pointer;
+          &:hover {
+            background-color: $mc;
+          }
+        }
+      }
+    }
+    flex-wrap: wrap;
+    #fileStatus {
+      width: 100%;
+      display: none;
+      padding: 6px 72px 0;
+      p {
+        margin: 0;
+        color: #656565;
+        @include font();
+        font-size: 13px;
+      }
+      button {
+        background-image: url("/img/cross.svg");
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        border: none;
+        width: 18.4px;
+        outline: none;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
