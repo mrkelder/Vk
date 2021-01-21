@@ -18,6 +18,6 @@
     "mongodb": "^3.5.3",
     "point-of-view": "^3.7.1",
     "pug": "^2.0.4",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   }
 }
